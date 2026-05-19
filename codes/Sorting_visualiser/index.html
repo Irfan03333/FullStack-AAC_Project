@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sorting Algorithm Visualizer</title>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>Sorting Algorithm Visualizer</h1>
+      <div class="header-buttons">
+        <button class="theme-toggle" id="themeToggle">🌙 Dark Mode</button>
+        <button class="about-btn" id="aboutBtn">About</button>
+      </div>
+    </div>
+
+    <div class="controls">
+      <div class="control-group">
+        <label>Algorithm:</label>
+        <select id="algorithmSelect">
+          <option value="selection">Selection Sort</option>
+          <option value="heap">Heap Sort</option>
+        </select>
+      </div>
+
+      <div class="control-group">
+        <label>Input Array:</label>
+        <input type="text" id="arrayInput" placeholder="Enter comma-separated numbers"/>
+        <button id="setArrayBtn">Set Array</button>
+        <button id="randomBtn">Generate Random</button>
+      </div>
+
+      <div class="control-group">
+        <label>Controls:</label>
+        <button id="sortBtn">Sort (Step)</button>
+        <button id="autoBtn">Auto</button>
+        <button id="stopBtn" disabled>Stop</button>
+        <button id="resetBtn">Reset</button>
+      </div>
+
+      <div class="control-group">
+        <label>Speed:</label>
+        <div class="slider-container">
+          <input type="range" id="speedSlider" min="1" max="100" value="50"/>
+          <span id="speedValue">50</span>
+        </div>
+      </div>
+
+      <div class="current-array">
+        <strong>Current Array:</strong>
+        <span id="currentArray"></span>
+      </div>
+
+      <!-- Warning banner (shown dynamically) -->
+      <div id="warningBanner" class="warning" role="alert" aria-live="polite" style="display:none;"></div>
+    </div>
+
+    <div class="main-content">
+      <div class="visualization">
+        <div class="bars-container" id="barsContainer"></div>
+
+        <div id="treeContainer" class="tree-container" style="display:none;"></div>
+
+        <div class="legend">
+          <div class="legend-item">
+            <div class="legend-color" style="background-color:#4a90a4;"></div>
+            <span>Default</span>
+          </div>
+          <div class="legend-item">
+            <div class="legend-color" style="background-color:#f4d03f;"></div>
+            <span>Comparing</span>
+          </div>
+          <div class="legend-item">
+            <div class="legend-color" style="background-color:#e74c3c;"></div>
+            <span>Swapping</span>
+          </div>
+          <div class="legend-item">
+            <div class="legend-color" style="background-color:#27ae60;"></div>
+            <span>Sorted</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="pseudocode">
+        <h3 id="pseudocodeTitle">Selection Sort Pseudocode</h3>
+        <pre id="pseudocodeContent"></pre>
+      </div>
+    </div>
+  </div>
+
+  <!-- About Modal -->
+  <div id="aboutModal" class="modal">
+    <div class="modal-content">
+      <button class="modal-close" id="modalClose">&times;</button>
+      <h2>About This Project</h2>
+      <p class="project-subtitle">Sorting Algorithm Visualizer</p>
+
+      <h3>Project Details</h3>
+      <p><strong>Project:</strong> FS+AAC Project</p>
+      <p><strong>Institution:</strong> Fergusson College</p>
+      <p><strong>Course:</strong> F.Y. MSc Computer Science</p>
+
+      <h3>Team Members</h3>
+      <ul class="team-members">
+        <li>• Himanshu Tokekar</li>
+        <li>• Irfan Shaikh</li>
+        <li>• Mayuresh Thorat</li>
+      </ul>
+
+      <h3>Guide by</h3>
+      <ul class="team-members">
+        <li>• Prof. Irfan Khatik</li>
+        <li>• Prof. Uma Madje</li>
+      </ul>
+
+      <h3>Purpose</h3>
+      <p>Educational visualization of Selection Sort and Heap Sort algorithms</p>
+      <p style="margin-top:15px;">Interactive visualization tool for understanding how sorting algorithms work step-by-step</p>
+    </div>
+  </div>
+
+  <!-- Sticky Footer -->
+  <div class="footer">
+    &copy; FS+AAC Project | Fergusson College | F.Y. MSc Computer Science
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
